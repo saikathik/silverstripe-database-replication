@@ -1,1 +1,22 @@
-
+version: '3'
+ 
+ services:
+   web:
+     image: php:7.3-apache
+     container-name: phpframework
+      depends_on:
+         _db
+      volumes:
+        - ./php:/var/www/html/
+        ports:
+          -8000:80
+    
+    db:
+      image: postgres
+       restart: always
+       environment:
+        postgres_root_password: password
+        Postgres_database: test_db
+        ports:
+         - 5432:5432
+         
