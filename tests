@@ -1,1 +1,23 @@
+-- Table: public.postgrestest
 
+-- DROP TABLE public.postgrestest;
+
+CREATE TABLE public.postgrestest
+(
+    name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    role character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    performance character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT postgrestest_name_key UNIQUE (name)
+,
+    CONSTRAINT postgrestest_performance_key UNIQUE (performance)
+,
+    CONSTRAINT postgrestest_role_key UNIQUE (role)
+
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.postgrestest
+    OWNER to postgres;
